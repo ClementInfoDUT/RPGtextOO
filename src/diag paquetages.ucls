@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="false" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <package id="1" language="java" name="view" project="Projet Test Dunjon RPG - starter" 
+    file="/Projet Test Dunjon RPG - starter/src/view" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="553" y="235"/>    
+    <display autosize="true" stereotype="false" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="model" project="Projet Test Dunjon RPG - starter" 
+    file="/Projet Test Dunjon RPG - starter/src/model" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="425" y="186"/>    
+    <display autosize="true" stereotype="false" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="controller" project="Projet Test Dunjon RPG - starter" 
+    file="/Projet Test Dunjon RPG - starter/src/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="548" y="138"/>    
+    <display autosize="true" stereotype="false" sort-features="false" accessors="true"/>  
+  </package>  
+  <dependency id="4">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="5">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
