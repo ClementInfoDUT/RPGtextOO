@@ -2,6 +2,8 @@ package view;
 
 import java.util.List;
 
+import model.Room;
+
 public class GameScreen {
 
   public void welcomeMessage() {
@@ -11,7 +13,7 @@ public class GameScreen {
   }
 
   public void badEnding() {
-    Console.displayln("Busted ! You missed your mission.");
+    Console.displayln("Oh non ! Tu as échoué...");
     Console.displayln("La princesse restera captive du méchant POO");
   }
 
@@ -50,5 +52,10 @@ public class GameScreen {
 
     return result;
   }
+
+public void describeCurrentRoom(Room currentLocation) {
+	String desc = currentLocation.getDesc();
+	describeCurrentRoom(desc);
+}
 
 }

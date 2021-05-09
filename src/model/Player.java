@@ -29,19 +29,19 @@ public class Player {
   }
 
   public void goWest() {
-    
+	  currentLocation = currentLocation.getWestRoom();
   }
 
   public void goNorth() {
-    
+	  currentLocation = currentLocation.getNorthRoom();
   }
 
   public void goEast() {
-    
+	  currentLocation = currentLocation.getEastRoom();
   }
 
   public void goSouth() {
-    
+	  currentLocation = currentLocation.getSouthRoom();
   }
 
 }
