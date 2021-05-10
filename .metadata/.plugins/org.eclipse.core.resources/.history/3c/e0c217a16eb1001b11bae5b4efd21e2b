@@ -1,0 +1,14 @@
+package model;
+
+public class Boss implements Entity{
+	private static final int STARTING_HP = 100;
+	
+	private Room currentLocation;
+	private int hp;
+	
+	public Boss(){
+		super();
+		hp = STARTING_HP;
+	}
+	
+}

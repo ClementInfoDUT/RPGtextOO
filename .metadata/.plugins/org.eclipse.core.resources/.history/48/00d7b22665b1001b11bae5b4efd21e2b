@@ -1,0 +1,68 @@
+package model;
+
+public class Dungeon {
+
+  private Room startingRoom;
+
+  public Dungeon() {
+    super();
+    initRooms();
+  }
+
+  private void initRooms() {
+
+    Room entry = new Room("une petite pièce banale avec un paillasson \"Bienvenue\"");
+    Room salleEnCroix = new Room("une intersection avec de grandes colonnes et 4 portes");
+    Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !");
+    Room pieceEnT = new Room("un grand couloir avec des armures rouillées et vides (normalement)");
+    Room couloirL = new Room("une pièce qui tourne avec une chaise posée dans un coin");
+    Room couloir = new Room("un couloir avec, accroché au mur, des tableaux de... voitures?");
+    Room couloirLPiege = new Room("une pièce avec un seqelette posé dans un coin, seul...");
+    Room salleCoffreA = new Room("une petite pièce avec un coffre, mais que contient-il?");
+    
+    Room grandCouloirCentre = new Room("un long couloir parsemer de preuve d'un passé plus glorieux");
+    Room grandCouloirOuest = new Room("la partie Ouest du grand couloir");
+    Room grandCouloirEst = new Room("la partie Est du grand couloir");
+    
+    Room salleSePareille = new Room("une zone étrange qui ressemble à un village de Schtroumpfs");
+    Room salleSuffit = new Room("un cul de sac");
+    Room salleAMeche = new Room("un long et étroit passage sinueux qui tourne dans tous les sens");
+
+    entry.setNorthRoom(salleEnCroix);
+    
+    salleEnCroix.setNorthRoom(sallePiegee);
+    salleEnCroix.setWestRoom(couloir);
+    salleEnCroix.setEastRoom(couloirL);
+    salleEnCroix.setSouthRoom(entry);
+    
+    couloir.setEastRoom(salleEnCroix);
+    
+	couloir.setNorthRoom(couloirLPiege);
+    couloir.setWestRoom(salleCoffreA);
+    couloir.setSouthRoom(salleCoffreP);
+    
+    pieceEnT.setSouthRoom(entry);
+    pieceEnT.setWestRoom(couloirL);
+    pieceEnT.setEastRoom(salleSuffit);
+    
+    couloirL.setEastRoom(pieceEnT);
+    couloirL.setNorthRoom(couloir);
+    
+    
+    
+    grandCouloirCentre.setSouthRoom(couloir);
+    grandCouloirCentre.setWestRoom(grandCouloirOuest);
+    grandCouloirCentre.setEastRoom(grandCouloirEst);
+    
+    salleSePareille.setSouthRoom(salleAMeche);
+    salleAMeche.setSouthRoom(pieceEnT);
+    
+
+    startingRoom = entry;
+  }
+
+  public Room getStartingRoom() {
+    return startingRoom;
+  }
+
+}
