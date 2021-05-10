@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Boss;
 import model.GameModel;
 import model.Player;
 import view.Action;
@@ -15,12 +16,14 @@ public class GameLogic {
   private GameScreen screen;
 
   private Player player;
+  private Boss boss;
 
   public GameLogic(GameModel theRootModel, GameScreen theRootView) {
     gameModel = theRootModel;
     screen = theRootView;
 
     player = gameModel.getPlayer();
+    boss = gameModel.getBoss();
   }
 
   public void start() {
@@ -83,8 +86,20 @@ public class GameLogic {
   }
 
   private boolean endOfTheGame() {
-    // TODO: add other reasons to end the game
-    return !player.isAlive();
+	boolean end = false;
+	//Si le joueur meurt
+    if (player.isAlive()){
+    	end = true;
+    }else{
+    	end = false;
+    }
+    //Si le boss meurt
+    if (boss.isAlive()){
+    	end = true;
+    }else{
+    	end = false;
+    }
+    return end;
   }
 
 }

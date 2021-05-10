@@ -13,13 +13,14 @@ public class GameScreen {
   }
 
   public void badEnding() {
-    Console.displayln("Oh non ! Tu as échoué...");
-    Console.displayln("La princesse restera captive du méchant POO");
+    Console.displayln("Vous êtes mort...");
+    Console.displayln("La règne du Tyran continuera encore");
+    
   }
 
   public void goodEnding() {
     Console.displayln("Bravo ! Vous avez gagné");
-    Console.displayln("... le droit de rejouer !!");
+    Console.displayln("Le Tyran est tombé");
   }
 
   public void describeCurrentRoom(String currentRoomDescription) {
