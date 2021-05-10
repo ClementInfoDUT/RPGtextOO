@@ -3,6 +3,7 @@ package model;
 public class Dungeon {
 
   private Room startingRoom;
+  private Room bossRoom;
 
   public Dungeon() {
     super();
@@ -75,10 +76,14 @@ public class Dungeon {
     sasBossEast.setWestRoom(salleBoss);
 
     startingRoom = entry;
+    bossRoom = salleBoss;
   }
 
   public Room getStartingRoom() {
     return startingRoom;
   }
 
+  public Room getBossRoom(){
+	  return bossRoom;
+  }
 }
