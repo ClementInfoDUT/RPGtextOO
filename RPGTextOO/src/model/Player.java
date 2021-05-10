@@ -1,15 +1,18 @@
 package model;
 
-public class Player {
+public class Player implements Entity{
 
   private static final int STARTING_HP = 70;
+  private static final int STARTING_DMG = 5;
 
   private Room currentLocation;
   private int hp;
+  private int damage;
 
   public Player() {
     super();
     hp = STARTING_HP;
+    damage = STARTING_DMG;
   }
 
   public Room getCurrentLocation() {
@@ -42,6 +45,13 @@ public class Player {
 
   public void goSouth() {
 	  currentLocation = currentLocation.getSouthRoom();
+  }
+
+  @Override
+  public void attack(Entity target) {
+	  	int targetHp;
+	  	targetHp = target.getHp();
+		targetHp = targetHp - damage;	
   }
 
 }
