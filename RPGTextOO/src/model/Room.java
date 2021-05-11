@@ -7,6 +7,7 @@ public class Room {
 	private Room eRoom;
 	private Room sRoom;
 	private Enemy mob;
+	private boolean lock = false;
 
 	public Room(String desc) {
 		super();
@@ -58,6 +59,14 @@ public class Room {
 	
 	public Enemy getMob(){
 		return mob;
+	}
+	
+	public boolean isLock() {
+		return lock;
+	}
+
+	public void setLock(boolean lock) {
+		this.lock = lock;
 	}
 
 }

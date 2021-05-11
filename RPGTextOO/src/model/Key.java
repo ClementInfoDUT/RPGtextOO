@@ -8,8 +8,9 @@ public class Key {
 	}
 	
 	public void open(Room room) {
-		if (room.isLock) {
-			room.setLock(False);
+		boolean lock = room.isLock();
+		if (lock == true) {
+			room.setLock(false);
 		}
 	}
 }
