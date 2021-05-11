@@ -7,6 +7,7 @@ public class Room {
 	private Room eRoom;
 	private Room sRoom;
 	private Enemy mob;
+	private boolean lock = false;
 
 	public Room(String desc) {
 		super();
