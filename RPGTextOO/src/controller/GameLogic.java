@@ -63,6 +63,9 @@ public class GameLogic {
     if (player.getCurrentLocation().getSouthRoom() != null) {
       result.add(new Action('S', "Aller vers le sud", PossibleAction.GOSOUTH));
     }
+    if (player.getCurrentLocation().getMob() != null){
+    	result.add(new Action('A', "Attaquer", PossibleAction.ATTACK));
+    }
 
     return result;
   }
@@ -81,25 +84,26 @@ public class GameLogic {
     case GOSOUTH:
       player.goSouth();
       break;
+    case ATTACK:
+    	player.attack(player.getCurrentLocation().getMob());
     }
 
   }
 
   private boolean endOfTheGame() {
-	boolean end = false;
-	//Si le joueur meurt
-    if (player.isAlive()){
-    	end = false;
-    }else{
-    	end = true;
-    }
-    //Si le boss meurt
-    if (boss.isAlive()){
-    	end = false;
-    }else{
-    	end = true;
-    }
-    return end;
-  }
+	    boolean end = false;
+	    //Si le joueur meurt
+	    if (player.isAlive()){
+	        if (boss.isAlive()) {
+	            end = false;
+	        }else {
+	            end = true;
+	        }
+	    } else {
+	        end = true;
+	    }
+	    //Si le boss meurt
+	    return end;
+	  }
 
 }

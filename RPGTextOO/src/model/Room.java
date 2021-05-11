@@ -6,6 +6,7 @@ public class Room {
 	private Room oRoom;
 	private Room eRoom;
 	private Room sRoom;
+	private Enemy mob;
 
 	public Room(String desc) {
 		super();
@@ -30,6 +31,10 @@ public class Room {
 		eRoom = room;
 		
 	}
+	
+	public void setMob(Enemy mob){
+		this.mob = mob;
+	}
 
 	public Room getWestRoom() {
 		return oRoom;
@@ -49,6 +54,10 @@ public class Room {
 	
 	public String getDesc() {
 		return desc;
+	}
+	
+	public Enemy getMob(){
+		return mob;
 	}
 
 }

@@ -1,20 +1,22 @@
 package model;
 
-public class Boss extends Enemy implements Entity{
-	private static final int STARTING_HP = 100;
-	private static final int STARTING_DMG = 10;
+public class Enemy implements Entity{
 	
-	private Room currentLocation;
+	private static final int STARTING_HP = 50;
+	private static final int STARTING_DMG = 3;
+	
 	private int hp;
 	private int damage;
+	private Room currentLocation;
 	private String name;
 	
-	public Boss(String name){
-		super(name);
+	public Enemy(String name){
+		super();
 		hp = STARTING_HP;
 		damage = STARTING_DMG;
+		this.name = name;
 	}
-
+	
 	@Override
 	public int getHp() {
 		return hp;
@@ -27,25 +29,31 @@ public class Boss extends Enemy implements Entity{
 
 	@Override
 	public Room getCurrentLocation() {
-	    return currentLocation;
+		return currentLocation;
 	}
 
 	@Override
 	public void setCurrentLocation(Room currentLocation) {
-	    this.currentLocation = currentLocation;
+		this.currentLocation = currentLocation;
+		
 	}
 	
+	@Override
 	public int getDamage(){
 		return damage;
 	}
-	
-	public void attack(Entity target){
+
+	@Override
+	public void attack(Entity target) {
 		int targetHp;
 		targetHp = target.getHp();
 		targetHp = targetHp - damage;
+		
 	}
 	
 	public String getName(){
 		return name;
 	}
+	
+
 }

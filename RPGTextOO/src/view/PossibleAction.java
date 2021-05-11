@@ -2,5 +2,5 @@ package view;
 
 public enum PossibleAction {
 
-  GOWEST, GOEAST, GONORTH, GOSOUTH;
+  GOWEST, GOEAST, GONORTH, GOSOUTH, ATTACK;
 }
