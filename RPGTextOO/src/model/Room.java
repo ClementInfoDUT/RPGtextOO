@@ -59,5 +59,13 @@ public class Room {
 	public Enemy getMob(){
 		return mob;
 	}
+	
+	public boolean isLock() {
+		return lock;
+	}
+
+	public void setLock(boolean lock) {
+		this.lock = lock;
+	}
 
 }
