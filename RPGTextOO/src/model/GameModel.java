@@ -9,7 +9,8 @@ public class GameModel {
   public GameModel() {
     theDungeon = new Dungeon();
     thePlayer = new Player();
-    theBoss = new Boss();
+    theBoss = new Boss("Le Tyran");
+    
     thePlayer.setCurrentLocation(theDungeon.getStartingRoom());
     theBoss.setCurrentLocation(theDungeon.getBossRoom());
   }
@@ -21,5 +22,6 @@ public class GameModel {
   public Boss getBoss(){
 	  return theBoss;
   }
+  
 
 }

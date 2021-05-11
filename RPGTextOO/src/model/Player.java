@@ -54,4 +54,9 @@ public class Player implements Entity{
 		targetHp = targetHp - damage;	
   }
 
+  @Override
+  public int getDamage() {
+	  return damage;
+  }
+
 }

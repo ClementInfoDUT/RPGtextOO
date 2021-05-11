@@ -4,6 +4,7 @@ public class Dungeon {
 
   private Room startingRoom;
   private Room bossRoom;
+  
 
   public Dungeon() {
     super();
@@ -59,7 +60,7 @@ public class Dungeon {
     
     couloir.setSouthRoom(couloirLPiege);
     couloir.setEastRoom(sasBossWest);
-    
+     
     sasBossWest.setWestRoom(couloir);
     sasBossWest.setEastRoom(salleBoss);
     
@@ -75,8 +76,12 @@ public class Dungeon {
     sasBossEast.setEastRoom(grandCouloir);
     sasBossEast.setWestRoom(salleBoss);
 
+    Enemy brokenArmor = new Enemy("Une Armure Rouillée");
+    couloir.setMob(brokenArmor);
+    
     startingRoom = entry;
     bossRoom = salleBoss;
+
   }
 
   public Room getStartingRoom() {
@@ -86,4 +91,5 @@ public class Dungeon {
   public Room getBossRoom(){
 	  return bossRoom;
   }
+  
 }
