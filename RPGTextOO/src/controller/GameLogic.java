@@ -91,20 +91,19 @@ public class GameLogic {
   }
 
   private boolean endOfTheGame() {
-	boolean end = false;
-	//Si le joueur meurt
-    if (player.isAlive()){
-    	end = false;
-    }else{
-    	end = true;
-    }
-    //Si le boss meurt
-    if (boss.isAlive()){
-    	end = false;
-    }else{
-    	end = true;
-    }
-    return end;
-  }
+	    boolean end = false;
+	    //Si le joueur meurt
+	    if (player.isAlive()){
+	        if (boss.isAlive()) {
+	            end = false;
+	        }else {
+	            end = true;
+	        }
+	    } else {
+	        end = true;
+	    }
+	    //Si le boss meurt
+	    return end;
+	  }
 
 }

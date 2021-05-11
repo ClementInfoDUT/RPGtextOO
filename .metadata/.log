@@ -2040,3 +2040,13 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2021-05-11 10:00:39.121
 !MESSAGE No repository found at http://cobertura.github.io/cobertura/.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1002 2021-05-11 10:04:50.589
+!MESSAGE HTTP Server 'Service Unavailable': http://andrei.gmxhome.de/eclipse/content.xml
+!STACK 1
+org.eclipse.ecf.filetransfer.BrowseFileTransferException: HttpComponents connection error response code 503.
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:289)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.ecf.identity 4 0 2021-05-11 10:04:50.591
+!MESSAGE HttpComponents connection error response code 503.
