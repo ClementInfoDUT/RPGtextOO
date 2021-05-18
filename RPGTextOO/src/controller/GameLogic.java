@@ -31,12 +31,27 @@ public class GameLogic {
 
     while (!endOfTheGame()) {
       screen.describeCurrentRoom(player.getCurrentLocation());
+      
+      if (player.getCurrentLocation().getMob() != null){
+      	if (player.getCurrentLocation().getMob().isAlive()){
+      		screen.describeCurrentMob(player.getCurrentLocation().getMob());
+      	}
+      }
 
       List<Action> contextualPossibleActions = getContextualActions();
 
       screen.proposeAvailableActions(contextualPossibleActions);
 
       PossibleAction actionToDo = screen.readActionToDo(contextualPossibleActions);
+      
+      if (actionToDo == PossibleAction.ATTACK){
+    	  while (player.getCurrentLocation().getMob().isAlive() && player.isAlive()){
+    		  screen.describeCurrentFight(player, player.getCurrentLocation().getMob());
+    	  		if (!player.getCurrentLocation().getMob().isAlive()){
+    	  			screen.killText(player.getCurrentLocation().getMob());
+    	  		}
+    	  }
+      }
 
       doAnAction(actionToDo);
     }
@@ -64,7 +79,10 @@ public class GameLogic {
       result.add(new Action('S', "Aller vers le sud", PossibleAction.GOSOUTH));
     }
     if (player.getCurrentLocation().getMob() != null){
-    	result.add(new Action('A', "Attaquer", PossibleAction.ATTACK));
+    	if (player.getCurrentLocation().getMob().isAlive()){
+    		result.clear();
+    		result.add(new Action('A', "Attaquer", PossibleAction.ATTACK));
+    	}
     }
 
     return result;

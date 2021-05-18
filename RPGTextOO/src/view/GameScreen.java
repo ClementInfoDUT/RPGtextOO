@@ -2,14 +2,16 @@ package view;
 
 import java.util.List;
 
+import model.Enemy;
+import model.Player;
 import model.Room;
 
 public class GameScreen {
 
   public void welcomeMessage() {
-    Console.displayln("Bienvenue dans le donjon de l'oubli !");
-    Console.displayln("Oui, en fait, il n'y a pas de fin, de boss, de princesse à délivrer...");
-    Console.displayln("Vous pouvez seulement vous promener...");
+    Console.displayln("Bienvenue dans la forteresse du Tyran");
+    Console.displayln("Le Tyran vous attends de pied ferme...");
+    Console.displayln("Allez-vous tomber? Ou allez-vous LE faire tomber?");
   }
 
   public void badEnding() {
@@ -26,6 +28,7 @@ public class GameScreen {
   public void describeCurrentRoom(String currentRoomDescription) {
     Console.displayln("Vous êtes dans " + currentRoomDescription);
   }
+  
 
   public void proposeAvailableActions(List<Action> actions) {
     for (Action a : actions) {
@@ -57,6 +60,25 @@ public class GameScreen {
 public void describeCurrentRoom(Room currentLocation) {
 	String desc = currentLocation.getDesc();
 	describeCurrentRoom(desc);
+}
+
+public void describeCurrentMob(Enemy mob) {
+	String desc = "Vous rencontrez " + mob.getName();
+	Console.displayln(desc);
+}
+
+public void describeCurrentFight(Player player, Enemy mob){
+	String fightText = FightView.PlayerAttack(player, mob);
+	Console.displayln(fightText);
+	if (mob.isAlive()){
+		FightView.EnemyAttack(mob, player);
+		FightView.CurrentHealth(player);
+	}
+}
+
+public void killText(Enemy mob) {
+	String text = "Vous avez vaincu " + mob;
+	Console.displayln(text);
 }
 
 }

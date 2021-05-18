@@ -26,6 +26,10 @@ public class Player implements Entity{
   public int getHp() {
     return hp;
   }
+  
+  public void setHp(int hp){
+	  this.hp = hp;
+  }
 
   public boolean isAlive() {
     return hp > 0;
@@ -51,7 +55,8 @@ public class Player implements Entity{
   public void attack(Entity target) {
 	  	int targetHp;
 	  	targetHp = target.getHp();
-		targetHp = targetHp - damage;	
+		targetHp = targetHp - damage;
+		target.setHp(targetHp);
   }
 
   @Override

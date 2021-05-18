@@ -76,8 +76,11 @@ public class Dungeon {
     sasBossEast.setEastRoom(grandCouloir);
     sasBossEast.setWestRoom(salleBoss);
 
-    Enemy brokenArmor = new Enemy("Une Armure Rouillée");
+    Enemy brokenArmor = new Enemy("une Armure Rouillée", 60, 5);
     couloir.setMob(brokenArmor);
+    
+    Enemy Spider = new Enemy("une araignée",30,1);
+    salleEnCroix.setMob(Spider);
     
     startingRoom = entry;
     bossRoom = salleBoss;

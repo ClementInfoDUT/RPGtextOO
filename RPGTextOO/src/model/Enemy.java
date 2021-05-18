@@ -17,9 +17,19 @@ public class Enemy implements Entity{
 		this.name = name;
 	}
 	
+	public Enemy(String name, int hp, int dmg){
+		this(name);
+		this.hp = hp;
+		this.damage = dmg;
+	}
+	
 	@Override
 	public int getHp() {
 		return hp;
+	}
+	
+	public void setHp(int hp){
+		this.hp = hp;
 	}
 
 	@Override
@@ -48,7 +58,7 @@ public class Enemy implements Entity{
 		int targetHp;
 		targetHp = target.getHp();
 		targetHp = targetHp - damage;
-		
+		target.setHp(targetHp);
 	}
 	
 	public String getName(){

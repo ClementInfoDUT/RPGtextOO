@@ -3,6 +3,8 @@ package model;
 public interface Entity {
 	
 	public int getHp();
+	
+	public void setHp(int hp);
 
 	public boolean isAlive();
 	

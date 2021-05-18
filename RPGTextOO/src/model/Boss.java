@@ -39,12 +39,6 @@ public class Boss extends Enemy implements Entity{
 		return damage;
 	}
 	
-	public void attack(Entity target){
-		int targetHp;
-		targetHp = target.getHp();
-		targetHp = targetHp - damage;
-	}
-	
 	public String getName(){
 		return name;
 	}
