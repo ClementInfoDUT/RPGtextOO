@@ -1,8 +1,0 @@
-package model;
-
-public interface Entity {
-	public int getHp();
-
-	public boolean isAlive();
-
-}
