@@ -67,18 +67,26 @@ public void describeCurrentMob(Enemy mob) {
 	Console.displayln(desc);
 }
 
-public void describeCurrentFight(Player player, Enemy mob){
+public void describePlayerTurnFight(Player player, Enemy mob){
 	String fightText = FightView.PlayerAttack(player, mob);
 	Console.displayln(fightText);
-	if (mob.isAlive()){
-		FightView.EnemyAttack(mob, player);
-		FightView.CurrentHealth(player);
-	}
+	String mobHealth = FightView.CurrentHealthMob(mob);
+	Console.displayln(mobHealth);
+}
+
+public void describeEnemyTurnFight(Enemy mob, Player player) {
+	String fightText = FightView.EnemyAttack(mob, player);
+	Console.displayln(fightText);
+	String health = FightView.CurrentHealthPlayer(player);
+	Console.displayln(health);
+	
 }
 
 public void killText(Enemy mob) {
-	String text = "Vous avez vaincu " + mob;
+	String text = "Vous avez vaincu " + mob.getName();
 	Console.displayln(text);
 }
+
+
 
 }

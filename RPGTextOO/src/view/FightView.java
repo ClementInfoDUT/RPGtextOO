@@ -4,6 +4,8 @@ import model.Enemy;
 import model.Player;
 
 public class FightView {
+	
+	
 	public static String PlayerAttack(Player player, Enemy mob){
 		String fightText = "Vous infligez " + player.getDamage() + " de dégâts sur " + mob.getName();
 		return fightText;
@@ -15,8 +17,13 @@ public class FightView {
 		
 	}
 	
-	public static String CurrentHealth(Player player){
-		String currentHealth = "Vous avez " + player.getHp();
+	public static String CurrentHealthPlayer(Player player){
+		String currentHealth = "Vous avez " + player.getHp() + " HP";
+		return currentHealth;
+	}
+
+	public static String CurrentHealthMob(Enemy mob) {
+		String currentHealth = "Votre adversaire a " + mob.getHp() + " HP";
 		return currentHealth;
 	}
 }

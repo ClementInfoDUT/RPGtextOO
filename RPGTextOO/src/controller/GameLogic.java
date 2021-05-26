@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Boss;
+import model.Enemy;
 import model.GameModel;
 import model.Player;
 import view.Action;
+import view.Console;
 import view.GameScreen;
 import view.PossibleAction;
 
@@ -44,16 +46,8 @@ public class GameLogic {
 
       PossibleAction actionToDo = screen.readActionToDo(contextualPossibleActions);
       
-      if (actionToDo == PossibleAction.ATTACK){
-    	  while (player.getCurrentLocation().getMob().isAlive() && player.isAlive()){
-    		  screen.describeCurrentFight(player, player.getCurrentLocation().getMob());
-    	  		if (!player.getCurrentLocation().getMob().isAlive()){
-    	  			screen.killText(player.getCurrentLocation().getMob());
-    	  		}
-    	  }
-      }
-
       doAnAction(actionToDo);
+      
     }
     if (player.isAlive()) {
       screen.goodEnding();
@@ -103,10 +97,27 @@ public class GameLogic {
       player.goSouth();
       break;
     case ATTACK:
-    	player.attack(player.getCurrentLocation().getMob());
+    	Fight(player, player.getCurrentLocation().getMob());
+    	//player.attack(player.getCurrentLocation().getMob());
     }
 
   }
+  
+  public void Fight(Player player, Enemy mob){
+		Console.displayln("==== Joueur VS " + mob.getName() + " ====");
+		while (player.getCurrentLocation().getMob().isAlive() && player.isAlive()){
+		  player.attack(mob);
+		  screen.describePlayerTurnFight(player, player.getCurrentLocation().getMob());
+		  if(player.getCurrentLocation().getMob().isAlive() && player.isAlive()){
+			  player.getCurrentLocation().getMob().attack(player);
+			  screen.describeEnemyTurnFight(player.getCurrentLocation().getMob(), player);
+		  }
+	  		if (!player.getCurrentLocation().getMob().isAlive()){
+	  			screen.killText(player.getCurrentLocation().getMob());
+	  			Console.displayln("==== Victoire du Joueur ====");
+	  		}
+	  }
+	}
 
   private boolean endOfTheGame() {
 	    boolean end = false;
