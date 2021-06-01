@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="model.Boss"/>
+<fullyQualifiedTypeName name="model.Enemy"/>
+<fullyQualifiedTypeName name="model.Player"/>
+<fullyQualifiedTypeName name="model.Entity"/>
+<fullyQualifiedTypeName name="view.FightView"/>
+<fullyQualifiedTypeName name="model.Fight"/>
+<fullyQualifiedTypeName name="view.GameScreen"/>
+<fullyQualifiedTypeName name="view.Console"/>
+</qualifiedTypeNameHistroy>

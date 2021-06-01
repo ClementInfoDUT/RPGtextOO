@@ -20,7 +20,7 @@ public class Dungeon {
     Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !\nEnfin, si on avait fait les pièges...");
     Room couloirL = new Room("une pièce qui tourne avec une chaise posée dans un coin");
     //Ennemi -->
-    Room petitCouloir = new Room("un couloir avec, accroché au mur, des tableaux de... voitures?");
+    Room petitCouloir = new Room("un couloir avec, accroché au mur, des portraits");
     //Salle piégée non-mortelle
     Room couloirLPiege = new Room("une pièce avec un seqelette posé dans un coin, seul...");
     //Coffre avec une arme
@@ -28,7 +28,7 @@ public class Dungeon {
     //Coffre avec une potion
     Room salleCoffreP = new Room("une petite pièce avec un coffre, mais que contient-il?\nSpoil: Rien");
     //Ennemi --> Armure Rouillée
-    Room couloir = new Room("un couloir avec des armures rouillées et vides (normalement)\nSurtout qu'on a pas fait les ennemis...");
+    Room couloir = new Room("un couloir avec des armures rouillées et vides (normalement)");
     Room grandCouloir = new Room("un long couloir parsemer de preuve d'un passé plus glorieux");
     Room sasBossWest = new Room("un petite pièce a l'aura pesante avec en face de vous, une immense porte");
     Room sasBossEast = new Room("un petite pièce a l'aura pesante avec en face de vous, une immense porte");
@@ -75,6 +75,9 @@ public class Dungeon {
     
     sasBossEast.setEastRoom(grandCouloir);
     sasBossEast.setWestRoom(salleBoss);
+    
+    Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
+    petitCouloir.setMob(painting);
 
     Enemy brokenArmor = new Enemy("une Armure Rouillée", 60, 5);
     couloir.setMob(brokenArmor);
@@ -82,8 +85,14 @@ public class Dungeon {
     Enemy Spider = new Enemy("une araignée",30,1);
     salleEnCroix.setMob(Spider);
     
+    Enemy ghostKnight = new Enemy("un chevalier fantôme", 60, 5);
+    grandCouloir.setMob(ghostKnight);
+    
+    Boss tyran = new Boss("le Tyran");
+    
     startingRoom = entry;
     bossRoom = salleBoss;
+    salleBoss.setMob(tyran);
 
   }
 

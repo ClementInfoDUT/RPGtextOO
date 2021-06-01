@@ -1,0 +1,13 @@
+package model;
+
+import view.Console;
+//import view.FightView;
+
+public class Fight {
+	
+	
+	public static void launchFight(Player player, Enemy mob){
+		Console.displayln("==== Joueur VS " + mob.getName() + " ====");
+		
+	}
+}

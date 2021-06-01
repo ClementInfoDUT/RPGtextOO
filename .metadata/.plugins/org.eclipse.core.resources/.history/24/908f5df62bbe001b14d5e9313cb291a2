@@ -1,0 +1,12 @@
+package model;
+
+import view.FightView;
+
+public class Fight {
+	
+	
+	public static void launchFight(Player player, Enemy mob){
+		
+		
+	}
+}
