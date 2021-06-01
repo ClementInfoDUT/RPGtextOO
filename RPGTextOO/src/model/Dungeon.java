@@ -76,6 +76,10 @@ public class Dungeon {
     sasBossEast.setEastRoom(grandCouloir);
     sasBossEast.setWestRoom(salleBoss);
     
+    Item potion = new Item("une potion de soin");
+    Chest chestP = new Chest("un coffre blanc avec une croix rouge", potion);
+    salleCoffreP.setChest(chestP);
+    
     Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
     petitCouloir.setMob(painting);
 

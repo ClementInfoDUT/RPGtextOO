@@ -7,6 +7,7 @@ public class Room {
 	private Room eRoom;
 	private Room sRoom;
 	private Enemy mob;
+	private Chest chest;
 	private boolean lock = false;
 
 	public Room(String desc) {
@@ -61,6 +62,14 @@ public class Room {
 		return mob;
 	}
 	
+	public Chest getChest() {
+		return chest;
+	}
+
+	public void setChest(Chest chest) {
+		this.chest = chest;
+	}
+
 	public boolean isLock() {
 		return lock;
 	}

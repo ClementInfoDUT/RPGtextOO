@@ -1,13 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Player implements Entity{
 
   private static final int STARTING_HP = 70;
-  private static final int STARTING_DMG = 5;
+  private static final int STARTING_DMG = 500; //Dégât normaux = 5
 
   private Room currentLocation;
   private int hp;
   private int damage;
+  private ArrayList<Item> inventory = new ArrayList<Item>();
 
   public Player() {
     super();
@@ -63,5 +66,15 @@ public class Player implements Entity{
   public int getDamage() {
 	  return damage;
   }
+  
+  public void addInInventory(Item item){
+	  this.inventory.add(item);
+	  
+  }
 
+  public ArrayList<Item> getInventory() {
+	return inventory;
+  }
+  
+  
 }

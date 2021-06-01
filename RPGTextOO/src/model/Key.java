@@ -1,16 +1,29 @@
 package model;
 
-public class Key {
+public class Key extends Item{
 	private String name;
 	
 	public Key(String name) {
-		this.name = name;
+		super(name);
 	}
 	
-	public void open(Room room) {
+	public void openRoom(Room room) {
 		boolean lock = room.isLock();
 		if (lock == true) {
 			room.setLock(false);
 		}
 	}
+	
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 }

@@ -1,8 +1,11 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import model.Chest;
 import model.Enemy;
+import model.Item;
 import model.Player;
 import model.Room;
 
@@ -85,6 +88,19 @@ public void describeEnemyTurnFight(Enemy mob, Player player) {
 public void killText(Enemy mob) {
 	String text = "Vous avez vaincu " + mob.getName();
 	Console.displayln(text);
+}
+
+//Description du coffre
+public void describeCurrentChest(Chest chest){
+	String desc = "Il y a " + chest.getDescChest();
+	Console.displayln(desc);
+}
+
+public void describeInventory(ArrayList<Item> inventory){
+	Console.displayln("==== Inventaire ====");
+	for (Item items: inventory){
+		Console.displayln(items.toString());
+	}
 }
 
 

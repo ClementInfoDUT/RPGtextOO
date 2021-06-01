@@ -39,6 +39,12 @@ public class GameLogic {
       		screen.describeCurrentMob(player.getCurrentLocation().getMob());
       	}
       }
+      
+      if (player.getCurrentLocation().getChest() != null){
+    	  if (player.getCurrentLocation().getChest().isOpen() == false){
+    		  screen.describeCurrentChest(player.getCurrentLocation().getChest());
+    	  }
+      }
 
       List<Action> contextualPossibleActions = getContextualActions();
 
@@ -59,7 +65,9 @@ public class GameLogic {
   public List<Action> getContextualActions() {
 
     List<Action> result = new ArrayList<>();
-
+    
+    result.add(new Action('I', "Voir l'inventaire", PossibleAction.LOOK));
+    
     if (player.getCurrentLocation().getWestRoom() != null) {
       result.add(new Action('O', "Aller vers l'ouest", PossibleAction.GOWEST));
     }
@@ -78,6 +86,13 @@ public class GameLogic {
     		result.add(new Action('A', "Attaquer", PossibleAction.ATTACK));
     	}
     }
+    
+    if (player.getCurrentLocation().getChest() != null){
+    	if (player.getCurrentLocation().getChest().isOpen() == false){
+        	result.add(new Action('C', "Ouvrir le coffre", PossibleAction.OPEN));
+        }
+    }
+    
 
     return result;
   }
@@ -98,7 +113,15 @@ public class GameLogic {
       break;
     case ATTACK:
     	Fight(player, player.getCurrentLocation().getMob());
-    	//player.attack(player.getCurrentLocation().getMob());
+    	break;
+    case OPEN:
+    	player.getCurrentLocation().getChest().setOpen(true);
+    	player.addInInventory(player.getCurrentLocation().getChest().getContent());
+    	break;
+    	
+    case LOOK:
+    	screen.describeInventory(player.getInventory());
+    	
     }
 
   }

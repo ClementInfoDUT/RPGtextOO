@@ -1,0 +1,11 @@
+package model;
+
+public class Chest {
+	private Item content;
+	private String descChest;
+	
+	public Chest(String desc, Item content){
+		this.descChest = desc;
+		this.content = content;
+	}
+}
