@@ -80,6 +80,14 @@ public class Dungeon {
     Chest chestP = new Chest("un coffre blanc avec une croix rouge", potion);
     salleCoffreP.setChest(chestP);
     
+    Weapon testSword = new Weapon("System.out.println(\"bonk\")", 10000);
+    Chest chestA = new Chest("un coffre solide et robuste", testSword);
+    salleCoffreA.setChest(chestA);
+    
+    Key bossKey = new Key("une clé en or");
+    Chest chestBossKey = new Chest("un coffre en or avec des finitions en diamants et émeraudes", bossKey);
+    salleCoffreKBoss.setChest(chestBossKey);
+    
     Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
     petitCouloir.setMob(painting);
 
@@ -95,6 +103,7 @@ public class Dungeon {
     Boss tyran = new Boss("le Tyran");
     
     startingRoom = entry;
+    //startingRoom = salleBoss;
     bossRoom = salleBoss;
     salleBoss.setMob(tyran);
 

@@ -116,17 +116,18 @@ public class GameLogic {
     	break;
     case OPEN:
     	player.getCurrentLocation().getChest().setOpen(true);
+    	screen.describeItemGet(player.getCurrentLocation().getChest().getContent());
     	player.addInInventory(player.getCurrentLocation().getChest().getContent());
     	break;
-    	
     case LOOK:
     	screen.describeInventory(player.getInventory());
     	
     }
 
   }
-  
-  public void Fight(Player player, Enemy mob){
+
+
+public void Fight(Player player, Enemy mob){
 		Console.displayln("==== Joueur VS " + mob.getName() + " ====");
 		while (player.getCurrentLocation().getMob().isAlive() && player.isAlive()){
 		  player.attack(mob);
@@ -146,7 +147,7 @@ public class GameLogic {
 	    boolean end = false;
 	    //Si le joueur meurt
 	    if (player.isAlive()){
-	        if (boss.isAlive()) {
+	        if (boss.getCurrentLocation().getMob().isAlive()) {
 	            end = false;
 	        }else {
 	            end = true;

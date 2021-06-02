@@ -103,6 +103,13 @@ public void describeInventory(ArrayList<Item> inventory){
 	}
 }
 
+public void describeItemGet(Item content) {
+	String desc = "Vous obtenez "+ content.getName();
+	Console.displayln(desc);
+}
+
+
+
 
 
 }
