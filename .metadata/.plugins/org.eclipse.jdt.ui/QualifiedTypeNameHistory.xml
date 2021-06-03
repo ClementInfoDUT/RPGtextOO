@@ -8,4 +8,8 @@
 <fullyQualifiedTypeName name="model.Fight"/>
 <fullyQualifiedTypeName name="view.GameScreen"/>
 <fullyQualifiedTypeName name="view.Console"/>
+<fullyQualifiedTypeName name="model.Chest"/>
+<fullyQualifiedTypeName name="view.PossibleAction"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="model.Item"/>
 </qualifiedTypeNameHistroy>
