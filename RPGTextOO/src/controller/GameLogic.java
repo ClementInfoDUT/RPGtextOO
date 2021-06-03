@@ -7,6 +7,7 @@ import model.Boss;
 import model.Enemy;
 import model.GameModel;
 import model.Player;
+import model.Weapon;
 import view.Action;
 import view.Console;
 import view.GameScreen;
@@ -40,11 +41,21 @@ public class GameLogic {
       	}
       }
       
+      if (player.getCurrentLocation().getTrap() != null){
+        	screen.describeCurrentTrap(player.getCurrentLocation().getTrap());
+        	if(player.getCurrentLocation().getTrap().isMortal()){
+        		player.getCurrentLocation().getTrap().kill(player);
+        	}else{
+        		player.getCurrentLocation().getTrap().attack(player);
+        	}
+      }
+      
       if (player.getCurrentLocation().getChest() != null){
     	  if (player.getCurrentLocation().getChest().isOpen() == false){
     		  screen.describeCurrentChest(player.getCurrentLocation().getChest());
     	  }
       }
+      
 
       List<Action> contextualPossibleActions = getContextualActions();
 
@@ -117,6 +128,12 @@ public class GameLogic {
     case OPEN:
     	player.getCurrentLocation().getChest().setOpen(true);
     	screen.describeItemGet(player.getCurrentLocation().getChest().getContent());
+    	if (player.getCurrentLocation().getChest().getContent().getClass() == Weapon.class){
+    		if(((Weapon) player.getCurrentLocation().getChest().getContent()).getDamage() > player.getCurrentWeapon().getDamage()){
+    			player.setCurrentWeapon((Weapon)player.getCurrentLocation().getChest().getContent());
+    			screen.describeNewWeaponEquipped((Weapon)player.getCurrentLocation().getChest().getContent());
+    		}
+    	}
     	player.addInInventory(player.getCurrentLocation().getChest().getContent());
     	break;
     case LOOK:

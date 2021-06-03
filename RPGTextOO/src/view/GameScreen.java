@@ -8,6 +8,8 @@ import model.Enemy;
 import model.Item;
 import model.Player;
 import model.Room;
+import model.Trap;
+import model.Weapon;
 
 public class GameScreen {
 
@@ -106,6 +108,17 @@ public void describeInventory(ArrayList<Item> inventory){
 public void describeItemGet(Item content) {
 	String desc = "Vous obtenez "+ content.getName();
 	Console.displayln(desc);
+}
+
+public void describeNewWeaponEquipped(Weapon weapon) {
+	String desc = "Vous vous équipez de " + weapon;
+	Console.displayln(desc);
+}
+
+public void describeCurrentTrap(Trap trap) {
+	String desc = "Vous tombez sur " + trap.getName();
+	Console.displayln(desc);
+	
 }
 
 

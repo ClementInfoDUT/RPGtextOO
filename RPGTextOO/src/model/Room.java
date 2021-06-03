@@ -8,6 +8,7 @@ public class Room {
 	private Room sRoom;
 	private Enemy mob;
 	private Chest chest;
+	private Trap trap;
 	private boolean lock = false;
 
 	public Room(String desc) {
@@ -76,6 +77,14 @@ public class Room {
 
 	public void setLock(boolean lock) {
 		this.lock = lock;
+	}
+
+	public Trap getTrap() {
+		return trap;
+	}
+
+	public void setTrap(Trap trap) {
+		this.trap = trap;
 	}
 
 }

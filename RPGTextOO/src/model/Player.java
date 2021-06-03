@@ -11,6 +11,7 @@ public class Player implements Entity{
   private int hp;
   private int damage;
   private ArrayList<Item> inventory = new ArrayList<Item>();
+  private Weapon currentWeapon = new Weapon("Epée en acier", 10);
 
   public Player() {
     super();
@@ -64,7 +65,7 @@ public class Player implements Entity{
 
   @Override
   public int getDamage() {
-	  return damage;
+	  return damage+currentWeapon.getDamage();
   }
   
   public void addInInventory(Item item){
@@ -75,6 +76,14 @@ public class Player implements Entity{
   public ArrayList<Item> getInventory() {
 	return inventory;
   }
+
+public Weapon getCurrentWeapon() {
+	return currentWeapon;
+}
+
+public void setCurrentWeapon(Weapon currentWeapon) {
+	this.currentWeapon = currentWeapon;
+}
   
   
 }

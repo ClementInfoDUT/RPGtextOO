@@ -18,7 +18,7 @@ public class Dungeon {
     Room salleEnCroix = new Room("une intersection avec de grandes colonnes et 4 portes");
     //Salle piégée mortelle
     Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !\nEnfin, si on avait fait les pièges...");
-    Room couloirL = new Room("une pièce qui tourne avec une chaise posée dans un coin");
+    Room couloirL = new Room("un couloir avec un angle et une chaise posée dans un coin");
     //Ennemi -->
     Room petitCouloir = new Room("un couloir avec, accroché au mur, des portraits");
     //Salle piégée non-mortelle
@@ -87,6 +87,12 @@ public class Dungeon {
     Key bossKey = new Key("une clé en or");
     Chest chestBossKey = new Chest("un coffre en or avec des finitions en diamants et émeraudes", bossKey);
     salleCoffreKBoss.setChest(chestBossKey);
+    
+    Trap weakTrap = new Trap("des pics rétractables", 5, false);
+    couloirLPiege.setTrap(weakTrap);
+    
+    Trap deathTrap = new Trap("des lances-flammes", 100, true);
+    sallePiegee.setTrap(deathTrap);
     
     Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
     petitCouloir.setMob(painting);
