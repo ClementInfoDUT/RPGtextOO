@@ -6,6 +6,8 @@ import java.util.List;
 import model.Boss;
 import model.Enemy;
 import model.GameModel;
+import model.Healing;
+import model.Item;
 import model.Player;
 import model.Weapon;
 import view.Action;
@@ -79,6 +81,12 @@ public class GameLogic {
     
     result.add(new Action('I', "Voir l'inventaire", PossibleAction.LOOK));
     
+    boolean hasHealingItems = false;
+	hasHealingItems = player.hasHealingItem();
+	if (hasHealingItems){
+		result.add(new Action('U', "Utiliser un objet de soin", PossibleAction.HEAL));
+	}
+    
     if (player.getCurrentLocation().getWestRoom() != null) {
       result.add(new Action('O', "Aller vers l'ouest", PossibleAction.GOWEST));
     }
@@ -104,6 +112,12 @@ public class GameLogic {
         }
     }
     
+    if (player.getCurrentLocation().getTrap() != null){
+    	if (player.getCurrentLocation().getTrap().isMortal()){
+    		result.clear();
+    		result.add(new Action('P', "Passer le temps", PossibleAction.PASS));
+    	}
+  	}
 
     return result;
   }
@@ -138,7 +152,21 @@ public class GameLogic {
     	break;
     case LOOK:
     	screen.describeInventory(player.getInventory());
+    	break;
     	
+    case PASS:
+    	Console.displayln("Vous passez le temps");
+    	break;
+    	
+    case HEAL:
+    	ArrayList<Item> inventory = new ArrayList<Item>();
+    	inventory = player.getInventory();
+    	for (Item items: inventory){
+    		if(items.equals(Healing.class)){
+    			player.setHp(((Healing) items).getHeal());
+    		}
+    	}
+   
     }
 
   }

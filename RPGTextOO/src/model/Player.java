@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+
 public class Player implements Entity{
 
   private static final int STARTING_HP = 70;
@@ -83,6 +84,17 @@ public Weapon getCurrentWeapon() {
 
 public void setCurrentWeapon(Weapon currentWeapon) {
 	this.currentWeapon = currentWeapon;
+}
+
+public boolean hasHealingItem() {
+	ArrayList<Item> inventory = new ArrayList<Item>();
+	inventory = this.getInventory();
+	for (Item items: inventory){
+		if(items.getClass() == Healing.class){
+			return true;
+		}
+	}
+	return false;
 }
   
   

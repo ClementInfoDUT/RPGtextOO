@@ -17,7 +17,7 @@ public class Dungeon {
     //Ennemi -->
     Room salleEnCroix = new Room("une intersection avec de grandes colonnes et 4 portes");
     //Salle piégée mortelle
-    Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !\nEnfin, si on avait fait les pièges...");
+    Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !");
     Room couloirL = new Room("un couloir avec un angle et une chaise posée dans un coin");
     //Ennemi -->
     Room petitCouloir = new Room("un couloir avec, accroché au mur, des portraits");
@@ -76,7 +76,7 @@ public class Dungeon {
     sasBossEast.setEastRoom(grandCouloir);
     sasBossEast.setWestRoom(salleBoss);
     
-    Item potion = new Item("une potion de soin");
+    Healing potion = new Healing("une potion de soin", 30);
     Chest chestP = new Chest("un coffre blanc avec une croix rouge", potion);
     salleCoffreP.setChest(chestP);
     
@@ -108,8 +108,7 @@ public class Dungeon {
     
     Boss tyran = new Boss("le Tyran");
     
-    startingRoom = entry;
-    //startingRoom = salleBoss;
+    startingRoom = salleCoffreP;
     bossRoom = salleBoss;
     salleBoss.setMob(tyran);
 
