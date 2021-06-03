@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.Chest;
 import model.Enemy;
+import model.Healing;
 import model.Item;
 import model.Player;
 import model.Room;
@@ -119,6 +120,11 @@ public void describeCurrentTrap(Trap trap) {
 	String desc = "Vous tombez sur " + trap.getName();
 	Console.displayln(desc);
 	
+}
+
+public void describeHealing(Healing items) {
+	String desc = "Vous vous soignez de " + items.getHeal() + " points de vie";
+	Console.displayln(desc);
 }
 
 

@@ -2,6 +2,7 @@ package model;
 
 public class Healing extends Item{
 	private int heal;
+	private boolean used = false;
 
 	public Healing(String name, int heal) {
 		super(name);
@@ -15,6 +16,14 @@ public class Healing extends Item{
 
 	public void setHeal(int heal) {
 		this.heal = heal;
+	}
+
+	public boolean isUsed() {
+		return used;
+	}
+
+	public void setUsed(boolean used) {
+		this.used = used;
 	}
 
 }

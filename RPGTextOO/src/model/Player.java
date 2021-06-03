@@ -91,7 +91,9 @@ public boolean hasHealingItem() {
 	inventory = this.getInventory();
 	for (Item items: inventory){
 		if(items.getClass() == Healing.class){
-			return true;
+			if (((Healing) items).isUsed() == false){
+				return true;
+			}	
 		}
 	}
 	return false;

@@ -162,10 +162,13 @@ public class GameLogic {
     	ArrayList<Item> inventory = new ArrayList<Item>();
     	inventory = player.getInventory();
     	for (Item items: inventory){
-    		if(items.equals(Healing.class)){
+    		if(items.getClass() == Healing.class){
     			player.setHp(((Healing) items).getHeal());
+    			screen.describeHealing((Healing)items);
+    			((Healing) items).setUsed(true);
     		}
     	}
+    	
    
     }
 
