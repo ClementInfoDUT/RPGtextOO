@@ -96,7 +96,8 @@ public class Dungeon {
     
     Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
     petitCouloir.setMob(painting);
-
+    petitCouloir.setLock(true);
+    
     Enemy brokenArmor = new Enemy("une Armure Rouillée", 60, 5);
     couloir.setMob(brokenArmor);
     
@@ -111,6 +112,7 @@ public class Dungeon {
     startingRoom = salleCoffreP;
     bossRoom = salleBoss;
     salleBoss.setMob(tyran);
+    salleBoss.setLock(true);
 
   }
 

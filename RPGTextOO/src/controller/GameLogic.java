@@ -8,6 +8,7 @@ import model.Enemy;
 import model.GameModel;
 import model.Healing;
 import model.Item;
+import model.Key;
 import model.Player;
 import model.Weapon;
 import view.Action;
@@ -83,21 +84,38 @@ public class GameLogic {
     
     boolean hasHealingItems = false;
 	hasHealingItems = player.hasHealingItem();
+	
 	if (hasHealingItems){
 		result.add(new Action('U', "Utiliser un objet de soin", PossibleAction.HEAL));
 	}
     
     if (player.getCurrentLocation().getWestRoom() != null) {
-      result.add(new Action('O', "Aller vers l'ouest", PossibleAction.GOWEST));
+    	if(player.getCurrentLocation().getWestRoom().isLock() == false) {
+    		result.add(new Action('O', "Aller vers l'ouest", PossibleAction.GOWEST));
+    	}else if(player.getCurrentLocation().getWestRoom().isLock() == true) {
+    		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
+    	}
     }
     if (player.getCurrentLocation().getEastRoom() != null) {
-      result.add(new Action('E', "Aller vers l'est", PossibleAction.GOEAST));
+    	if(player.getCurrentLocation().getEastRoom().isLock() == false) {
+    		 result.add(new Action('E', "Aller vers l'est", PossibleAction.GOEAST));
+    	}else if(player.getCurrentLocation().getEastRoom().isLock() == true) {
+    		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
+    	}
     }
     if (player.getCurrentLocation().getNorthRoom() != null) {
-      result.add(new Action('N', "Aller vers le nord", PossibleAction.GONORTH));
+    	if(player.getCurrentLocation().getNorthRoom().isLock() == false) {
+   		 result.add(new Action('E', "Aller vers l'est", PossibleAction.GONORTH));
+    	}else if(player.getCurrentLocation().getNorthRoom().isLock() == true) {
+    		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
+    	}
     }
     if (player.getCurrentLocation().getSouthRoom() != null) {
-      result.add(new Action('S', "Aller vers le sud", PossibleAction.GOSOUTH));
+    	if(player.getCurrentLocation().getSouthRoom().isLock() == false) {
+   		 result.add(new Action('E', "Aller vers l'est", PossibleAction.GOSOUTH));
+    	}else if(player.getCurrentLocation().getSouthRoom().isLock() == true) {
+    		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
+    	}
     }
     if (player.getCurrentLocation().getMob() != null){
     	if (player.getCurrentLocation().getMob().isAlive()){
@@ -123,6 +141,7 @@ public class GameLogic {
   }
 
   private void doAnAction(PossibleAction action) {
+	 ArrayList<Item> inventory = new ArrayList<Item>();
     switch (action) {
     case GOWEST:
       player.goWest();
@@ -159,7 +178,6 @@ public class GameLogic {
     	break;
     	
     case HEAL:
-    	ArrayList<Item> inventory = new ArrayList<Item>();
     	inventory = player.getInventory();
     	for (Item items: inventory){
     		if(items.getClass() == Healing.class){
@@ -168,10 +186,24 @@ public class GameLogic {
     			((Healing) items).setUsed(true);
     		}
     	}
-    	
-   
+    	break;
+    case OPENDOOR:
+    	boolean hasKeyItems = false;
+    	hasKeyItems = player.hasKeyItem();
+    	inventory = player.getInventory();
+    	if(hasKeyItems == false) {
+    		screen.hasntKey();
+    	}else {
+    		for (Item items: inventory){
+        		if(items.getClass() == Key.class){
+        				player.getCurrentLocation().setLock(false);
+        				screen.describeKeyOpen();
+        				((Key) items).setUsed(true);
+        		}
+        	}
+    	}
     }
-
+    
   }
 
 

@@ -127,8 +127,14 @@ public void describeHealing(Healing items) {
 	Console.displayln(desc);
 }
 
+public void describeKeyOpen() {
+	String desc = "Vous venez d'ouvrir la porte !";
+	Console.displayln(desc);
+}
 
-
-
+public void hasntKey() {
+	String desc = "Vous ne possédez pas la clé";
+	Console.displayln(desc);
+}
 
 }

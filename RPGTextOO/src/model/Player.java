@@ -98,6 +98,18 @@ public boolean hasHealingItem() {
 	}
 	return false;
 }
+public boolean hasKeyItem() {
+	ArrayList<Item> inventory = new ArrayList<Item>();
+	inventory = this.getInventory();
+	for (Item items: inventory){
+		if(items.getClass() == Key.class){
+			if (((Key) items).isUsed() == false){
+				return true;
+			}	
+		}
+	}
+	return false;
+}
   
   
 }
