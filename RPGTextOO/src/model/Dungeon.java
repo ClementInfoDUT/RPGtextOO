@@ -13,29 +13,29 @@ public class Dungeon {
 
   private void initRooms() {
 
-    Room entry = new Room("une petite piÃ¨ce banale avec un paillasson \"Bienvenue\"");
+    Room entry = new Room("une petite pièce banale avec un paillasson \"Bienvenue\"");
     //Ennemi -->
     Room salleEnCroix = new Room("une intersection avec de grandes colonnes et 4 portes");
-    //Salle piÃ©gÃ©e mortelle
-    Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinÃ©rateur !");
-    Room couloirL = new Room("un couloir avec un angle et une chaise posÃ©e dans un coin");
+    //Salle piégée mortelle
+    Room sallePiegee = new Room("une salle qui se verouille et se transforme en incinérateur !");
+    Room couloirL = new Room("un couloir avec un angle et une chaise posée dans un coin");
     //Ennemi -->
-    Room petitCouloir = new Room("un couloir avec, accrochÃ© au mur, des portraits");
-    //Salle piÃ©gÃ©e non-mortelle
-    Room couloirLPiege = new Room("une piÃ¨ce avec un seqelette posÃ© dans un coin, seul...");
+    Room petitCouloir = new Room("un couloir avec, accrochés au mur, des portraits");
+    //Salle piégée non-mortelle
+    Room couloirLPiege = new Room("une pièce avec un seqelette posé dans un coin, seul...");
     //Coffre avec une arme
-    Room salleCoffreA = new Room("une petite piÃ¨ce avec un coffre, mais que contient-il?\nSpoil: Rien");
+    Room salleCoffreA = new Room("une petite armurie avec un coffre, mais que contient-il?");
     //Coffre avec une potion
-    Room salleCoffreP = new Room("une petite piÃ¨ce avec un coffre, mais que contient-il?\nSpoil: Rien");
-    //Ennemi --> Armure RouillÃ©e
-    Room couloir = new Room("un couloir avec des armures rouillÃ©es et vides (normalement)");
-    Room grandCouloir = new Room("un long couloir parsemer de preuve d'un passÃ© plus glorieux");
-    Room sasBossWest = new Room("un petite piÃ¨ce a l'aura pesante avec en face de vous, une immense porte");
-    Room sasBossEast = new Room("un petite piÃ¨ce a l'aura pesante avec en face de vous, une immense porte");
-    //Coffre avec le clÃ© du boss
-    Room salleCoffreKBoss = new Room("un petite piÃ¨ce avec un coffre majestueux, vous Ãªtes impatient de dÃ©couvrir son contenu");
-    //Boss Final -->
-    Room salleBoss = new Room("une immense salle ressemblant Ã  une arÃªne somptueuse, avec des pilliers gigantesques\nLes spectateurs semblent Ãªtre lÃ  depuis toujours...\nLe maÃ®tre des lieux se tient debout au centre, attendant l'heure de l'affrontement...");
+    Room salleCoffreP = new Room("une petite pièce liée à l'alchimie avec un coffre, mais que contient-il?");
+    //Ennemi --> Armure Rouillée
+    Room couloir = new Room("un couloir avec des armures rouillées et vides (normalement)");
+    Room grandCouloir = new Room("un long couloir parsemer de preuve d'un passé plus glorieux");
+    Room sasBossWest = new Room("un petite pièce a l'aura pesante avec en face de vous, une immense porte");
+    Room sasBossEast = new Room("un petite pièce a l'aura pesante avec en face de vous, une immense porte");
+    //Coffre avec le clé du boss
+    Room salleCoffreKBoss = new Room("un petite pièce avec un coffre majestueux, vous êtes impatient de découvrir son contenu");
+    //Salle du Boss
+    Room salleBoss = new Room("une immense salle ressemblant à une arêne somptueuse, avec des pilliers gigantesques\nLes spectateurs semblent être là depuis toujours...\nLe maître des lieux se tient debout au centre, attendant l'heure de l'affrontement...");
 
     entry.setNorthRoom(salleEnCroix);
     
@@ -80,15 +80,15 @@ public class Dungeon {
     Chest chestP = new Chest("un coffre blanc avec une croix rouge", potion);
     salleCoffreP.setChest(chestP);
     
-    Weapon testSword = new Weapon("System.out.println(\"bonk\")", 10000);
+    Weapon testSword = new Weapon("System.out.println(\"bonk\")", 30);
     Chest chestA = new Chest("un coffre solide et robuste", testSword);
     salleCoffreA.setChest(chestA);
     
-    Key bossKey = new Key("une clÃ© en or");
-    Chest chestBossKey = new Chest("un coffre en or avec des finitions en diamants et Ã©meraudes", bossKey);
+    Key bossKey = new Key("une clé en or");
+    Chest chestBossKey = new Chest("un coffre en or avec des finitions en diamants et émeraudes", bossKey);
     salleCoffreKBoss.setChest(chestBossKey);
     
-    Trap weakTrap = new Trap("des pics rÃ©tractables", 5, false);
+    Trap weakTrap = new Trap("des pics rétractables", 5, false);
     couloirLPiege.setTrap(weakTrap);
     
     Trap deathTrap = new Trap("des lances-flammes", 100, true);
@@ -97,17 +97,18 @@ public class Dungeon {
     Enemy painting = new Enemy("une peinture fantomatique", 50, 3);
     petitCouloir.setMob(painting);
     
-    Enemy brokenArmor = new Enemy("une Armure RouillÃ©e", 60, 5);
+    Enemy brokenArmor = new Enemy("une Armure Rouillée", 60, 5);
     couloir.setMob(brokenArmor);
     
-    Enemy Spider = new Enemy("une araignÃ©e",30,1);
+    Enemy Spider = new Enemy("une araignée",30,1);
     salleEnCroix.setMob(Spider);
     
-    Enemy ghostKnight = new Enemy("un chevalier fantÃ´me", 60, 5);
+    Enemy ghostKnight = new Enemy("un chevalier fantôme", 60, 5);
     grandCouloir.setMob(ghostKnight);
     
     Boss tyran = new Boss("le Tyran");
     
+    //startingRoom = entry;
     startingRoom = salleCoffreP;
     bossRoom = salleBoss;
     salleBoss.setMob(tyran);

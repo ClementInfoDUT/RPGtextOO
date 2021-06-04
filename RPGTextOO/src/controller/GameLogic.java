@@ -17,18 +17,9 @@ import view.GameScreen;
 import view.PossibleAction;
 
 public class GameLogic {
-  /**This the game model, where it contains the dungeon, the player and the boss
-   * @see GameModel **/
   private GameModel gameModel;
-  /**This the game screen, where it contains all the describing methods
-   * @see GameScreen **/
   private GameScreen screen;
-
-  /**This is the player
-   * @see Player **/
   private Player player;
-  /**This is the boss
-   * @see Boss **/
   private Boss boss;
 
   public GameLogic(GameModel theRootModel, GameScreen theRootView) {
@@ -57,6 +48,7 @@ public class GameLogic {
         		player.getCurrentLocation().getTrap().kill(player);
         	}else{
         		player.getCurrentLocation().getTrap().attack(player);
+        		screen.describeDamageTrap(player.getCurrentLocation().getTrap());
         	}
       }
       
@@ -112,14 +104,14 @@ public class GameLogic {
     }
     if (player.getCurrentLocation().getNorthRoom() != null) {
     	if(player.getCurrentLocation().getNorthRoom().isLock() == false) {
-   		 result.add(new Action('E', "Aller vers l'est", PossibleAction.GONORTH));
+   		 result.add(new Action('N', "Aller vers le nord", PossibleAction.GONORTH));
     	}else if(player.getCurrentLocation().getNorthRoom().isLock() == true) {
     		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
     	}
     }
     if (player.getCurrentLocation().getSouthRoom() != null) {
     	if(player.getCurrentLocation().getSouthRoom().isLock() == false) {
-   		 result.add(new Action('E', "Aller vers l'est", PossibleAction.GOSOUTH));
+   		 result.add(new Action('S', "Aller vers le sud", PossibleAction.GOSOUTH));
     	}else if(player.getCurrentLocation().getSouthRoom().isLock() == true) {
     		result.add(new Action('K', "Ouvrir la porte", PossibleAction.OPENDOOR));
     	}
@@ -188,7 +180,7 @@ public class GameLogic {
     	inventory = player.getInventory();
     	for (Item items: inventory){
     		if(items.getClass() == Healing.class){
-    			player.setHp(((Healing) items).getHeal());
+    			player.setHp(((Healing) items).getHeal() + player.getHp());
     			screen.describeHealing((Healing)items);
     			((Healing) items).setUsed(true);
     		}
@@ -203,7 +195,19 @@ public class GameLogic {
     	}else {
     		for (Item items: inventory){
         		if(items.getClass() == Key.class){
-        				player.getCurrentLocation().setLock(false);
+        			if (player.getCurrentLocation().getNorthRoom() != null) {
+        				player.getCurrentLocation().getNorthRoom().setLock(false);
+        			}
+        			if (player.getCurrentLocation().getWestRoom() != null) {
+        				player.getCurrentLocation().getWestRoom().setLock(false);
+        			}
+        			if (player.getCurrentLocation().getEastRoom() != null) {
+        				player.getCurrentLocation().getEastRoom().setLock(false);
+        			}
+        			if (player.getCurrentLocation().getSouthRoom() != null) {
+        				player.getCurrentLocation().getSouthRoom().setLock(false);
+        			}	
+        				
         				screen.describeKeyOpen();
         				((Key) items).setUsed(true);
         		}

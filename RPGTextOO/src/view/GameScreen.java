@@ -117,7 +117,7 @@ public void describeNewWeaponEquipped(Weapon weapon) {
 }
 
 public void describeCurrentTrap(Trap trap) {
-	String desc = "Vous tombez sur " + trap.getName();
+	String desc = "Vous tombez sur " + trap.getName() + "\nC'est un piège !";
 	Console.displayln(desc);
 	
 }
@@ -134,6 +134,11 @@ public void describeKeyOpen() {
 
 public void hasntKey() {
 	String desc = "Vous ne possédez pas la clé";
+	Console.displayln(desc);
+}
+
+public void describeDamageTrap(Trap trap) {
+	String desc = "Vous subissez " + trap.getDamage() + " points de dégât";
 	Console.displayln(desc);
 }
 

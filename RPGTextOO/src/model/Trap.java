@@ -42,11 +42,15 @@ public class Trap {
 	public void setMortal(boolean mortal) {
 		this.mortal = mortal;
 	}
+
+
+	public int getDamage() {
+		return damage;
+	}
+
+
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
 	
-	/* Ce serait bien de le
-	 * faire bientôt...
-	 * Mais pour l'instant,
-	 * on est dans la sauce.
-	 * Putain zebi...
-	 */
 }

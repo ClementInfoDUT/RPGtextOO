@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Player implements Entity{
 
   private static final int STARTING_HP = 70;
-  private static final int STARTING_DMG = 500; //Dégât normaux = 5
+  private static final int STARTING_DMG = 5; //Dégât normaux = 5
 
   private Room currentLocation;
   private int hp;
@@ -60,7 +60,7 @@ public class Player implements Entity{
   public void attack(Entity target) {
 	  	int targetHp;
 	  	targetHp = target.getHp();
-		targetHp = targetHp - damage;
+		targetHp = targetHp - getDamage();
 		target.setHp(targetHp);
   }
 
