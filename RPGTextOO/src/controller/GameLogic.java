@@ -17,11 +17,18 @@ import view.GameScreen;
 import view.PossibleAction;
 
 public class GameLogic {
-
+  /**This the game model, where it contains the dungeon, the player and the boss
+   * @see GameModel **/
   private GameModel gameModel;
+  /**This the game screen, where it contains all the describing methods
+   * @see GameScreen **/
   private GameScreen screen;
 
+  /**This is the player
+   * @see Player **/
   private Player player;
+  /**This is the boss
+   * @see Boss **/
   private Boss boss;
 
   public GameLogic(GameModel theRootModel, GameScreen theRootView) {

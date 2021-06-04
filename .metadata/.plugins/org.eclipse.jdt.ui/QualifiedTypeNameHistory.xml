@@ -13,4 +13,5 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="model.Item"/>
 <fullyQualifiedTypeName name="model.Weapon"/>
+<fullyQualifiedTypeName name="model.Healing"/>
 </qualifiedTypeNameHistroy>
