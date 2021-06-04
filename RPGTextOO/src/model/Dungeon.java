@@ -108,8 +108,7 @@ public class Dungeon {
     
     Boss tyran = new Boss("le Tyran");
     
-    //startingRoom = entry;
-    startingRoom = salleCoffreP;
+    startingRoom = entry;
     bossRoom = salleBoss;
     salleBoss.setMob(tyran);
     salleBoss.setLock(true);
